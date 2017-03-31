@@ -1,0 +1,61 @@
+<html>
+<head>
+	<script>
+	console.log("duplications");
+
+
+	function duplicateCount(text){
+		var mainResult = [];
+		var arrayVar = text.toLowerCase().split("");
+
+		function symbol(symbol, count){
+			this.symbol = symbol;
+			this.count = count;
+		}
+
+		function isInside(arrayX, symbolVar){
+			var result = false;
+			for (var i in arrayX){
+				if (arrayX[ i ].symbol == symbolVar) result = true;
+			}
+			return result;
+		}
+
+		function numberOf(arrayX, symbolVar){
+			var result = 0;
+			for (var i in arrayX){
+				if (arrayX[ i ] == symbolVar) result ++;
+			}
+			return result;
+		}
+
+		//calculate occurences, create array
+		for (var i in arrayVar){
+			if (!isInside(mainResult, arrayVar[i])){
+				mainResult.push(new symbol(arrayVar[i],numberOf(arrayVar, arrayVar[i])));
+
+				//debug
+				console.log(arrayVar[i] + "|" + isInside(mainResult, arrayVar[i]) + "|" + numberOf(arrayVar, arrayVar[i]));
+			}
+		}
+
+		var dupesNumber = 0;
+		for (var objIndex in mainResult){
+			if (mainResult[objIndex].count > 1) dupesNumber ++;
+		}
+		return dupesNumber;
+	}
+
+
+	var line1 = "abasdEsfacdBF112233";
+	console.log(duplicateCount(line1));
+
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

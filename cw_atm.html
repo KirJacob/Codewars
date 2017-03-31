@@ -1,0 +1,33 @@
+<html>
+<head>
+	<script>
+
+function list(names){
+  var result = "";
+  var namesLength = names.length;
+  console.log(namesLength);
+  for (var i in names){
+    result = result + names[ i ].name;
+    if ((i != (namesLength - 1)) && (i != (namesLength - 2)))
+      result = result + ", ";
+    if (i == (namesLength - 2)) result = result + " & ";
+    console.log(i + "|" + names[ i ].name);
+  }
+  console.log("result=" + result);
+  return result;
+}
+	var list1= [ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ];
+	console.log(list(list1));
+
+	var list2 = [];
+	console.log(list2);
+
+	var list4= [ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'}, {name: 'Homer & Marge'} ];
+	console.log(list(list4));
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

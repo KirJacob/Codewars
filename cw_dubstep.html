@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script>
+
+	function songDecoder(song){
+		var result;
+		var symbol = " ";
+		
+		while (song.indexOf("WUB")!==(-1))
+			song = song.replace("WUB",symbol);
+
+		var stringArray = song.split("");
+		console.log(stringArray);
+
+		for (var i = 0; i < stringArray.length; i ++){
+			if (i !== 0){
+				if ((stringArray[i]==symbol)&&(stringArray[i]==stringArray[i-1])){
+					stringArray.splice(i, 1);
+					i = i - 1;
+				}
+			}
+
+			if (((i == 0) && (stringArray[i] == symbol)) || 
+				((i == (stringArray.length - 1)) && (stringArray[i] == symbol))){
+				stringArray.splice(i,1);
+				i = i - 1;
+			}
+		}
+
+		console.log(stringArray);
+		var result = stringArray.join("");
+		console.log(result);
+
+		return result;
+	}
+
+	var song1 = "WUBKSDHEMIXUJWUBWUBRWUBWUBWUBSWUBWUBWUBHWUBWUBWUB";
+	console.log(songDecoder(song1));
+	
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>;
