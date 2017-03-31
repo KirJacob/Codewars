@@ -1,0 +1,34 @@
+<html>
+<head>
+	<script>
+	//https://www.codewars.com/kata/5552101f47fc5178b1000050/train/javascript
+
+	function digPow(n, p){
+		
+		var line = String(n);
+		var charArray = line.split("");
+		
+		var numArray = [ ],
+			i = 0,
+			sum = 0,
+			degree = p;
+		
+		for (var j in charArray){
+			numArray[ i ] = Number(charArray[ j ]);
+			sum = sum + Math.pow(numArray[ i ], degree);
+			degree ++ ;
+			i ++ ;
+		}
+
+		if ((sum % n) !== 0) return -1
+		else return (sum / n);
+	}
+	
+	digPow(46288,3);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
